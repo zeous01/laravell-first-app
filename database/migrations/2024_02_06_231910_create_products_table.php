@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->decimal('price',8,2);
             $table->integer('inventory_quantity');
-            $table->enum('status', ['available', 'out_of_stack'])->default('available');
+            $table->string('status');
             $table->timestamps();
             $table->softDeletes();
         });

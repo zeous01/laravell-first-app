@@ -15,7 +15,7 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
 })->name('home');
 
@@ -26,5 +26,12 @@ Route::get('/registeration', [AuthManager::class , 'registeration'])-> name('reg
 Route::post('/registeration', [AuthManager::class , 'registerationPost'])-> name('registeration.post');
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
-Route::get('/product', [ProductController::class , 'index'])->name('product.index');
+Route::get('/product', [ProductController::class , 'index'])->name('products.index');
+
 Route::get('/product/create', [ProductController::class , 'create'])->name('product.create');
+Route::post('/product', [ProductController::class , 'store'])->name('product.store');
+
+Route::get('/product/{product}/edit', [ProductController::class , 'edit'])->name('product.edit');
+Route::put('/product/{product}/update', [ProductController::class , 'update'])->name('product.update');
+
+Route::delete('/product/{product}/destroy', [ProductController::class , 'destroy'])->name('product.destroy');
