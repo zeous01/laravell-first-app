@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthManager;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::post('/login', [AuthManager::class , 'loginPost'])-> name('login.post');
 Route::get('/registeration', [AuthManager::class , 'registeration'])-> name('registeration');
 Route::post('/registeration', [AuthManager::class , 'registerationPost'])-> name('registeration.post');
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
+
+Route::get('/product', [ProductController::class , 'index'])->name('product.index');
+Route::get('/product/create', [ProductController::class , 'create'])->name('product.create');
